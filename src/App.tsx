@@ -6,6 +6,9 @@ import ClassState from './Component/ClassState';
 // import Customer from './Component/Customer'
 // import User from './Component/User';
 // import FunState from './Component/FunState';
+import Counter from './Component/Counter'
+import ClassbaseCounter from './Component/ClassbaseCounter';
+import Youtube from './Component/Youtube';
 
 const App = () => {
   return (
@@ -15,7 +18,10 @@ const App = () => {
       {/* <User userid={1} name="ankit" email="ankit@gmail.com" title="classbased"/> */}
 
       {/* <FunState/> */}
-      <ClassState/>
+      {/* <ClassState/> */}
+      {/* <Counter/> */}
+      {/* <ClassbaseCounter/> */}
+      <Youtube/>
     </div>
   )
 }
