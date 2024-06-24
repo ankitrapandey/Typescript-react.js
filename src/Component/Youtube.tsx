@@ -14,8 +14,6 @@ const Youtube:React.FC = () => {
       <button onClick={()=>handleGreet('Like')} className='h-[7vh] w-[10vw] rounded-md bg-orange-300 text-red-600 text-xl'>Like</button>
       <button onClick={()=>handleGreet('comment')}  className='h-[7vh] w-[10vw] ml-5 rounded-md bg-orange-300 text-red-600 text-xl'>comment</button>
       <button onClick={()=>handleGreet('subscribe')} className='h-[7vh] w-[10vw] ml-5 rounded-md bg-orange-300 text-red-600 text-xl'>Subscribe</button>
-
-
     </div>
   )
 }
