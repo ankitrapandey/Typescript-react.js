@@ -1,98 +1,5 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
-// import { Box, Typography, Button } from '@mui/material';
-// import { useParams } from 'react-router-dom';
 
-// interface Product {
-//   id: number;
-//   title: string;
-//   description: string;
-//   images: string[];
-//   price: number;
-// }
-
-// interface Props {
-//   id: string;
-// }
-
-// interface State {
-//   product: Product | null;
-//   cart: Product[];
-// }
-
-// class ProductDetail extends Component<Props, State> {
-//   constructor(props: Props) {
-//     super(props);
-//     this.state = {
-//       product: null,
-//       cart: [],
-//     };
-//   }
-
-//   componentDidMount(): void {
-//     this.fetchProduct();
-//   }
-
-//   componentDidUpdate(prevProps: Props): void {
-//     if (prevProps.id !== this.props.id) {
-//       this.fetchProduct();
-//     }
-//   }
-
-//   fetchProduct = (): void => {
-//     const { id } = this.props;
-//     axios.get(`https://dummyjson.com/products/${id}`)
-//       .then(response => {
-//         this.setState({ product: response.data });
-//       })
-//       .catch(error => {
-//         console.error('Error fetching data:', error);
-//       });
-//   };
-
-//   addToCart = (): void => {
-//     const { product, cart } = this.state;
-//     if (product) {
-//       this.setState({ cart: [...cart, product] });
-//     }
-//   };
-
-//   removeFromCart = (productId: number): void => {
-//     this.setState((prevState) => ({
-//       cart: prevState.cart.filter(product => product.id !== productId),
-//     }));
-//   };
-
-//   render() {
-//     const { product, cart } = this.state;
-
-//     if (!product) {
-//       return 
-//     }
-
-//     return (
-//       <Box style={{ border: '2px solid skyblue', marginTop: '1rem', width: '400px', padding: '1rem' }}>
-//         <Box style={{ marginBottom: '2rem' }}>
-//           <img src={product.images[0]} alt={product.title} style={{ width: '30vw', height: '25vh' }} />
-//           <Typography variant="h4">title:{product.title}</Typography>
-//           <Typography variant="h6">Price: ${product.price}</Typography>
-//           <Button variant="contained" color="primary" onClick={this.addToCart}>
-//             Add to Cart
-//           </Button>
-//         </Box>
-
-//       </Box>
-//     );
-//   }
-// }
-
-// export default function ProductDetailWrapper() {
-//   const { id } = useParams<{ id: string }>();
-//   return <ProductDetail id={id!} />;
-// }
-
-
-import React, { Component } from 'react';
+import  { Component } from 'react';
 import axios from 'axios';
 import { Box, Typography, Button, IconButton } from '@mui/material';
 import { useParams } from 'react-router-dom';
@@ -126,25 +33,25 @@ class ProductDetail extends Component<Props, State> {
   }
 
   componentDidMount(): void {
-    this.fetchProduct();
-  }
-
-  componentDidUpdate(prevProps: Props): void {
-    if (prevProps.id !== this.props.id) {
-      this.fetchProduct();
-    }
-  }
-
-  fetchProduct = (): void => {
     const { id } = this.props;
     axios.get<Product>(`https://dummyjson.com/products/${id}`)
       .then(response => {
         this.setState({ product: response.data });
+   
+ 
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  };
+  }
+
+  // componentDidUpdate(prevProps: Props): void {
+  //   if (prevProps.id !== this.props.id) {
+  //     this.componentDidMount();
+  //   }
+  // }
+
+  
 
   addToCart = (): void => {
     const { product, cart } = this.state;
@@ -241,4 +148,6 @@ export default function ProductDetailWrapper() {
   const { id } = useParams<{ id: string }>();
   return <ProductDetail id={id!} />;
 }
+
+
 

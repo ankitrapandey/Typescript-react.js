@@ -1,5 +1,4 @@
-
-import  { Component } from 'react';
+import { Component } from 'react';
 import { IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -41,6 +40,12 @@ export default class Ecommerce extends Component<{}, State> {
   favouriteItem = (id: number) => {
     this.setState(prevState => {
       const isFav = prevState.favorites.includes(id);
+      const product = prevState.data.find(item => item.id === id);
+
+      if (product) {
+        console.log('Product Details:', product);
+      }
+
       return {
         favorites: isFav ? prevState.favorites.filter(favId => favId !== id) : [...prevState.favorites, id],
       };

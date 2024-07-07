@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 interface State {
   currentImage: number;
-
 }
 
 interface CartItem {
@@ -67,3 +66,4 @@ export default class Ecommerce extends Component<{}, State> {
     );
   }
 }
+
